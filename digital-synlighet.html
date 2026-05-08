@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Synlighet – Lei en markedssjef når du trenger det</title>
+<meta name="description" content="Trine Linskov – erfaren markedssjef tilgjengelig for innleie. Over 20 års erfaring. Strategisk og operativt. Book en kaffeprat i dag.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-soft: #4a4a46;
+    --ink-muted: #8a8a84;
+    --cream: #faf8f3;
+    --cream-dark: #f0ede4;
+    --warm: #c8824a;
+    --warm-light: #f5e9de;
+    --warm-dark: #a3622e;
+    --green: #3a6b4a;
+    --green-light: #e8f2ec;
+    --border: rgba(26,26,24,0.10);
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,248,243,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.3px;
+  }
+  .nav-logo span { color: var(--warm); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 14px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--warm); }
+  .nav-cta {
+    background: var(--warm);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--warm-dark) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    padding: 80px 5vw 72px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--warm-light);
+    color: var(--warm-dark);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 4.5vw, 54px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--warm);
+    font-weight: 300;
+  }
+  .hero-lead {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--warm);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--warm-dark); transform: translateY(-1px); }
+  .hero-note {
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .hero-img-wrap {
+    position: relative;
+  }
+  .hero-img-bg {
+    position: absolute;
+    inset: -16px;
+    background: var(--warm-light);
+    border-radius: 24px;
+    z-index: 0;
+  }
+  .hero-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    background: var(--cream-dark);
+  }
+  .hero-badge {
+    position: absolute;
+    bottom: -12px;
+    left: -12px;
+    z-index: 2;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .badge-icon {
+    width: 36px; height: 36px;
+    background: var(--warm-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .badge-text { font-size: 13px; font-weight: 500; line-height: 1.3; }
+  .badge-text span { display: block; font-size: 11px; color: var(--ink-muted); font-weight: 400; }
+
+  /* SECTION LAYOUT */
+  section { padding: 72px 5vw; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--warm);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--warm); font-weight: 300; }
+  .section-lead {
+    font-size: 17px;
+    color: var(--ink-soft);
+    font-weight: 300;
+    max-width: 580px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  /* WHY SECTION */
+  .why-bg { background: var(--ink); }
+  .why-bg .section-label { color: var(--warm); }
+  .why-bg .section-title { color: #faf8f3; }
+  .why-bg .section-title em { color: var(--warm); }
+  .why-bg .section-lead { color: rgba(250,248,243,0.65); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .why-card {
+    background: #252522;
+    padding: 32px 28px;
+    transition: background 0.2s;
+  }
+  .why-card:hover { background: #2e2e2b; }
+  .why-num {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--warm);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -2px;
+  }
+  .why-card h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #faf8f3;
+    margin-bottom: 8px;
+  }
+  .why-card p {
+    font-size: 14px;
+    color: rgba(250,248,243,0.55);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 26px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--warm); transform: translateY(-2px); }
+  .service-icon {
+    width: 44px; height: 44px;
+    background: var(--warm-light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .service-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+  }
+  .tag {
+    background: var(--cream-dark);
+    color: var(--ink-soft);
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 400;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-img-wrap {
+    position: relative;
+  }
+  .about-img {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    background: var(--cream-dark);
+  }
+  .about-img-bg {
+    position: absolute;
+    inset: 12px -12px -12px 12px;
+    background: var(--green-light);
+    border-radius: 16px;
+    z-index: -1;
+  }
+  .about-content { padding-top: 8px; }
+  .about-content p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 18px;
+    font-weight: 300;
+  }
+  .about-content p strong { color: var(--ink); font-weight: 500; }
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .skill-tag {
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-weight: 400;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-bg { background: var(--cream-dark); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .testimonial-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px 26px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .testimonial-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    color: var(--warm);
+    line-height: 0.8;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .testimonial-text {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-style: italic;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .author-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--warm-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--warm-dark);
+    flex-shrink: 0;
+  }
+  .author-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .author-role { font-size: 12px; color: var(--ink-muted); }
+  .placeholder-tag {
+    display: inline-block;
+    background: var(--warm-light);
+    color: var(--warm-dark);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .contact-intro .section-title { margin-bottom: 16px; }
+  .contact-intro p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .contact-facts { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  .contact-fact {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .contact-fact-icon {
+    width: 32px; height: 32px;
+    background: var(--warm-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .contact-fact strong { display: block; font-size: 13px; font-weight: 500; color: var(--ink); }
+
+  /* FORM */
+  .contact-form-wrap {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+  }
+  .form-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+  }
+  .form-subtitle { font-size: 14px; color: var(--ink-muted); margin-bottom: 28px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--cream);
+    transition: border-color 0.2s;
+    outline: none;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--warm); background: #fff; }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: var(--ink-muted); font-size: 14px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-submit {
+    width: 100%;
+    background: var(--warm);
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 6px;
+  }
+  .form-submit:hover { background: var(--warm-dark); transform: translateY(-1px); }
+  .form-note { font-size: 12px; color: var(--ink-muted); text-align: center; margin-top: 12px; }
+
+  /* SUCCESS STATE */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 32px 0;
+  }
+  .form-success-icon {
+    width: 56px; height: 56px;
+    background: var(--green-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 16px;
+  }
+  .form-success h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .form-success p { font-size: 15px; color: var(--ink-soft); font-weight: 300; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(250,248,243,0.5);
+    padding: 32px 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #faf8f3;
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--warm); }
+  footer p { font-size: 13px; }
+  footer a { color: rgba(250,248,243,0.5); text-decoration: none; }
+  footer a:hover { color: var(--warm); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.3s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.4s; }
+  .hero-img-wrap { opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 48px 5vw; }
+    .hero-img-wrap { order: -1; max-width: 300px; margin: 0 auto; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-img-wrap { max-width: 280px; margin: 0 auto; }
+    .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .form-row { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+
+  /* DIVIDER */
+  .divider { width: 48px; height: 3px; background: var(--warm); border-radius: 2px; margin-bottom: 32px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Digital<span>Synlighet</span></a>
+  <ul class="nav-links">
+    <li><a href="#hvorfor">Hvorfor leie inn?</a></li>
+    <li><a href="#tjenester">Tjenester</a></li>
+    <li><a href="#om">Om Trine</a></li>
+    <li><a href="#referanser">Referanser</a></li>
+    <li><a href="#kontakt" class="nav-cta">Book kaffeprat ☕</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Markedssjef til leie</span>
+    <h1>Markedsføring som <em>faktisk skjer</em> – ikke bare planlegges</h1>
+    <p class="hero-lead">Trenger bedriften din en erfaren markedssjef – men ikke på fulltid? Jeg tar ansvar for det som må gjøres, leverer resultater, og er lett å jobbe med.</p>
+    <div class="hero-cta-row">
+      <a href="#kontakt" class="btn-primary">☕ Book en kaffeprat</a>
+      <span class="hero-note">Gratis og uforpliktende</span>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="hero-img-bg"></div>
+    <img src="" alt="Trine Linskov – markedssjef" class="hero-img" 
+         onerror="this.style.background='#e8ddd4'; this.style.display='flex'; this.innerHTML='<div style=&quot;display:flex;align-items:center;justify-content:center;height:100%;font-family:Fraunces,serif;font-size:22px;color:#c8824a;padding:32px;text-align:center&quot;>Trine Linskov</div>'">
+    <div class="hero-badge">
+      <div class="badge-icon">🎯</div>
+      <div class="badge-text">20+ år erfaring<span>Strategi · Digital · Operativt</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY SECTION -->
+<section class="why-bg" id="hvorfor">
+  <div class="section-inner">
+    <div class="section-label">Hvorfor leie inn?</div>
+    <h2 class="section-title" style="color:#faf8f3">Mange SMB-bedrifter trenger <em>markedsføring</em>,<br>men ikke en fulltidsansatt</h2>
+    <p class="section-lead">Du vil ikke bruke tid og penger på en ansettelsesprosess. Du vil ha noen som kan starte raskt, jobbe selvstendig og levere – uten at du må lære opp noen fra bunnen av.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>Spar penger</h3>
+        <p>Du betaler kun for den tiden og kompetansen du faktisk trenger. Ingen arbeidsgiveravgift, feriepenger eller pensjon.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h3>Kom i gang raskt</h3>
+        <p>Ingen lang ansettelsesprosess. Vi avklarer hva du trenger, og jeg er i gang. Ingen opplæringstid – jeg har gjort dette mange ganger.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h3>Fleksibelt opplegg</h3>
+        <p>Noen timer i uken, en dag, eller et konkret prosjekt. Du bestemmer omfanget – og vi kan justere etter hvert.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3>Hands-on, ikke bare strategi</h3>
+        <p>Jeg lager innholdet, publiserer, følger opp og rapporterer. Ikke bare råd – jeg gjør jobben.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="tjenester">
+  <div class="section-inner">
+    <div class="section-label">Tjenester</div>
+    <h2 class="section-title">Hva kan jeg hjelpe<br>deg <em>med?</em></h2>
+    <p class="section-lead">Jeg dekker hele spekteret – fra strategi til publisering. Du velger hva som passer best for der du er nå.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Sosiale medier</h3>
+        <p>Innholdsplan, tekst, bilder og publisering. Jeg tar ansvar for at bedriften din er synlig og relevant på de kanalene kundene dine er.</p>
+        <div class="service-tags">
+          <span class="tag">Facebook</span>
+          <span class="tag">Instagram</span>
+          <span class="tag">LinkedIn</span>
+          <span class="tag">Innholdsplan</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Nettside og synlighet</h3>
+        <p>Nettside som faktisk ser bra ut og er lett å finne. SEO-optimalisering, Google-profil og innhold som treffer kundene dine.</p>
+        <div class="service-tags">
+          <span class="tag">SEO</span>
+          <span class="tag">Google</span>
+          <span class="tag">Nettside</span>
+          <span class="tag">Innhold</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Markedsstrategi</h3>
+        <p>En plan som faktisk lar seg gjennomføre. Hvem er kundene dine, hva trenger de å høre, og hvilke kanaler gir best effekt for deg?</p>
+        <div class="service-tags">
+          <span class="tag">Strategi</span>
+          <span class="tag">Målgruppe</span>
+          <span class="tag">Kanalmiks</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📧</div>
+        <h3>E-post og kampanjer</h3>
+        <p>Fra idé til ferdig kampanje. Nyhetsbrev, sesongtilbud eller kundepleie – jeg hjelper deg å kommunisere godt med de som allerede kjenner deg.</p>
+        <div class="service-tags">
+          <span class="tag">E-postmarkedsføring</span>
+          <span class="tag">Kampanjer</span>
+          <span class="tag">CRM</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Analyse og oppfølging</h3>
+        <p>Hva virker og hva virker ikke? Jeg setter opp og tolker data fra Google Analytics og sosiale medier, slik at du vet hva du bruker pengene på.</p>
+        <div class="service-tags">
+          <span class="tag">Google Analytics</span>
+          <span class="tag">Rapportering</span>
+          <span class="tag">Innsikt</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>KI og nye verktøy</h3>
+        <p>Jeg er oppdatert på AI-verktøy som ChatGPT og bruker dem aktivt for å jobbe smartere og levere mer. Du får effektiv hjelp til riktig pris.</p>
+        <div class="service-tags">
+          <span class="tag">ChatGPT</span>
+          <span class="tag">Automasjon</span>
+          <span class="tag">Effektivitet</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="om" style="background: var(--cream-dark);">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <div class="about-img-bg"></div>
+        <img src="" alt="Trine Linskov" class="about-img"
+             onerror="this.style.background='#ddd8cf'; this.alt=''">
+      </div>
+      <div class="about-content">
+        <div class="section-label">Om Trine</div>
+        <h2 class="section-title">Strukturert, engasjert og <em>hands-on</em></h2>
+        <div class="divider"></div>
+        <p>Hei, jeg er Trine! Jeg har over 20 år bak meg innen markedsføring, kommunikasjon og salgsledelse – og de siste årene har jeg jobbet som selvstendig konsulent for bedrifter som trenger en erfaren markedssjef uten å ansette en på heltid.</p>
+        <p>Jeg <strong>gjennomfører</strong> – det er det jeg liker best. Å ta tak i utfordringen, lage en plan, og sørge for at ting faktisk skjer. Jeg er like komfortabel med å skrive Facebook-innlegg og fikse Google-profilen som å sette opp en markedsstrategi.</p>
+        <p>Jeg er oppdatert på ny teknologi og bruker aktivt KI-verktøy som ChatGPT for å jobbe effektivt. Jeg er nysgjerrig, liker å lære – og liker folk.</p>
+        <p><strong>Tidligere:</strong> Markedssjef i SjekkPunkt Norge AS i 18 år – nasjonal bilverkstedkjede. Bachelor i internasjonal markedsføring fra BI.</p>
+        <div class="skills-list">
+          <span class="skill-tag">Digital markedsføring</span>
+          <span class="skill-tag">Markedsstrategi</span>
+          <span class="skill-tag">Sosiale medier</span>
+          <span class="skill-tag">SEO</span>
+          <span class="skill-tag">CRM</span>
+          <span class="skill-tag">GDPR</span>
+          <span class="skill-tag">Eventledelse</span>
+          <span class="skill-tag">Innholdsproduksjon</span>
+          <span class="skill-tag">ChatGPT / KI</span>
+          <span class="skill-tag">Google Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg" id="referanser">
+  <div class="section-inner">
+    <div class="section-label">Referanser</div>
+    <h2 class="section-title">Hva kundene <em>sier</em></h2>
+    <p class="section-lead">Jeg har jobbet med bilverksteder, håndverkere og andre SMB-bedrifter. Her er noen tilbakemeldinger.</p>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="placeholder-tag">Kommer snart</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Trine har hatt ansvar for hele vår tilstedeværelse i sosiale medier i tre år. Hun leverer ukentlig innhold som treffer kundene våre, og vi merker tydelig at vi har fått mer oppmerksomhet lokalt. Det er trygt å overlate dette til noen som både forstår markedsføring og faktisk gjennomfører.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TB</div>
+          <div>
+            <div class="author-name">Daglig leder</div>
+            <div class="author-role">Bilverksted, Sør-Norge</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="placeholder-tag">Kommer snart</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Trine tok tak i nettsiden og Google-profilen vår og strukturerte alt på en måte vi aldri hadde klart selv. Vi dukker nå opp der kundene søker, og vi slipper å tenke på det selv. Akkurat slik vi vil ha det.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">CK</div>
+          <div>
+            <div class="author-name">Daglig leder</div>
+            <div class="author-role">Christiansen & Kjenner AS</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="placeholder-tag">Kommer snart</div>
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Vi visste at vi burde gjøre mer i sosiale medier, men hadde verken tid eller kompetanse. Trine løste det. Hun kjenner bransjen, er lett å jobbe med og leverer alltid det hun lover.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">BV</div>
+          <div>
+            <div class="author-name">Daglig leder</div>
+            <div class="author-role">Bilverksted, Østlandet</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="kontakt">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <div class="section-label">Ta kontakt</div>
+        <h2 class="section-title">La oss ta en <em>kaffeprat</em></h2>
+        <div class="divider"></div>
+        <p>Ikke sikker på hva du trenger? Ingen fare. Vi starter med en uforpliktende prat om der bedriften din er nå, og hva som kunne gjort en forskjell. Det forplikter ikke til noe.</p>
+        <p>Jeg er fleksibel på antall dager og lengde på oppdrag – og vi finner et opplegg som passer for deg.</p>
+        <div class="contact-facts">
+          <div class="contact-fact">
+            <div class="contact-fact-icon">📍</div>
+            <div>
+              <strong>Lokasjon</strong>
+              Østerås – tilgjengelig i hele Norge
+            </div>
+          </div>
+          <div class="contact-fact">
+            <div class="contact-fact-icon">📞</div>
+            <div>
+              <strong>Telefon</strong>
+              <a href="tel:+4790013432" style="color:var(--warm); text-decoration:none;">+47 900 13 432</a>
+            </div>
+          </div>
+          <div class="contact-fact">
+            <div class="contact-fact-icon">✉️</div>
+            <div>
+              <strong>E-post</strong>
+              <a href="mailto:trine@linskov.com" style="color:var(--warm); text-decoration:none;">trine@linskov.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <div id="form-content">
+          <h3 class="form-title">Book en kaffeprat ☕</h3>
+          <p class="form-subtitle">Fyll inn litt info, så tar jeg kontakt innen en dag eller to.</p>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Navn *</label>
+                <input type="text" id="name" placeholder="Ditt navn" required>
+              </div>
+              <div class="form-group">
+                <label for="company">Bedrift</label>
+                <input type="text" id="company" placeholder="Bedriftsnavn">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Telefon *</label>
+                <input type="tel" id="phone" placeholder="999 00 000" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-post</label>
+                <input type="email" id="email" placeholder="din@epost.no">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message">Hva trenger du hjelp med?</label>
+              <textarea id="message" rows="4" placeholder="Beskriv gjerne kort hva du tenker på..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send meg en henvendelse →</button>
+          </form>
+          <p class="form-note">Ingen binding. Bare en hyggelig prat om muligheter. 🙂</p>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">✓</div>
+          <h3>Takk! Jeg tar kontakt snart.</h3>
+          <p>Ser frem til å høre mer om bedriften din og hva vi kan gjøre sammen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Digital<span>Synlighet</span></a>
+  <p>© 2025 Trine Linskov · <a href="mailto:trine@linskov.com">trine@linskov.com</a> · <a href="tel:+4790013432">+47 900 13 432</a></p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('form-content').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+</body>
+</html>
